@@ -1,0 +1,38 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>ReactJS Examples</title>
+        <link href="/lib/bootstrap.min.css" rel="stylesheet" />
+        <link href="/css/default.css" rel="stylesheet" />
+    </head>
+    <body>
+
+        <div class="container-fluid">
+            <div id="content" class="col-xs-6 col-xs-offset-3"></div>
+        </div>
+
+        <script src="/lib/require.js"></script>
+
+        <script>
+
+            require.config({
+                paths: {
+                    react: 'lib/react',
+                    'react-dom': 'lib/react-dom',
+                    application: 'js/app',
+                    model: 'js/model',
+                    'todo/list': 'js/todo/list',
+                    'todo/item': 'js/todo/item'
+                }
+            });
+
+            var app = {};
+            require(['application', 'react-dom'], function (Application, ReactDOM) {
+                app.global = new Application();
+
+                ReactDOM.render(app.global.render(), document.getElementById('content'));
+            });
+        </script>
+
+    </body>
+</html>
